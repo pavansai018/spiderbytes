@@ -3,6 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="spiderbytes_v3">
+<xacro:arg name="ros2_control_yaml" default=""/>
   <link
     name="base_link">
     <inertial>
@@ -1599,5 +1600,77 @@
     <axis
       xyz="0 0 0" />
   </joint>
+<ros2_control name="spiderbytes_system" type="system">
+  <hardware>
+    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+  </hardware>
+  <joint name="joint_rotation_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_rotation_2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_rotation_3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_rotation_4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+</ros2_control>
+<gazebo>
+  <plugin
+      filename="gz_ros2_control-system"
+      name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <parameters>$(arg ros2_control_yaml)</parameters>
+  </plugin>
+</gazebo>
 
 </robot>
