@@ -1,12 +1,12 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import Command, LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import Command, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
-from launch.substitutions import FindExecutable
+from launch.event_handlers import OnProcessExit
 
 
 def generate_launch_description():
@@ -14,9 +14,10 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     urdf = os.path.join(get_package_share_directory(
         'spiderbytes'), 'urdf', 'spider.xacro')
+    control_yaml_file = os.path.join(get_package_share_directory('spiderbytes'), 'config', 'ros2_control.yaml')
     # world = LaunchConfiguration('world')
 
-    robot_desc = ParameterValue(Command(['xacro ', urdf]),
+    robot_desc = ParameterValue(Command(['xacro ', urdf, ' ', 'ros2_control_yaml:=', control_yaml_file]),
                                        value_type=str)
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
@@ -36,7 +37,7 @@ def generate_launch_description():
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(gz_sim_share, "launch", "gz_sim.launch.py")),
         launch_arguments={
-            "gz_args" : gz_world_arg 
+            "gz_args" : '-r empty.sdf', #gz_world_arg 
         }.items()
     )
     
@@ -89,6 +90,31 @@ def generate_launch_description():
         parameters=[jsp_gui_params],
     )
 
+    spawner_jsb = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_state_broadcaster', '--controller-manager', '/controller_manager'],
+        output='screen',
+    )   
+
+    spawner_jtc = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_trajectory_controller', '--controller-manager', '/controller_manager'],
+        output='screen',
+    )
+    jsp_to_traj_node = Node(
+        package='spiderbytes',
+        executable='jsp_to_traj',
+        output='screen',
+    )
+    spawn_controllers_after_entity = RegisterEventHandler(
+        OnProcessExit(
+            target_action=gz_spawn_entity,
+            on_exit=[spawner_jsb, spawner_jtc],
+        )
+    )
+
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -100,11 +126,13 @@ def generate_launch_description():
     ld.add_action(gz_sim)
     ld.add_action(gz_spawn_entity)
     ld.add_action(gz_ros2_bridge)
-
-
+    # ld.add_action(spawner_jsb)
+    # ld.add_action(spawner_jtc)
+    ld.add_action(spawn_controllers_after_entity)
     # Launch Robot State Publisher
     ld.add_action(start_robot_state_publisher_cmd)
 
     # Launch Joint State Publisher GUI
     ld.add_action(joint_state_publisher_gui)
+    ld.add_action(jsp_to_traj_node)
     return ld
