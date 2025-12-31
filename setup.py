@@ -16,6 +16,8 @@ setup(
         (os.path.join('share', package_name, 'urdf'), glob(os.path.join('urdf', '*'))),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*'))),
         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*'))),
+        (os.path.join('share', package_name, 'nodes'), glob(os.path.join('nodes', '*'))),
+        (os.path.join('share', package_name, 'spiderbytes'), glob(os.path.join('spiderbytes', '*'))),
 
     ],
     install_requires=['setuptools'],
@@ -31,6 +33,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'jsp_to_traj = spiderbytes.jsp_to_traj:main',
         ],
     },
 )
