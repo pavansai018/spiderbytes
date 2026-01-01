@@ -17,7 +17,7 @@ class JSPToTraj(Node):
         ]
 
         self.sub = self.create_subscription(
-            JointState, '/joint_states', self.cb, 10
+            JointState, '/gui_joint_states', self.cb, 10
         )
 
         self.pub = self.create_publisher(
@@ -31,6 +31,7 @@ class JSPToTraj(Node):
 
         pt = JointTrajectoryPoint()
         pt.positions = [msg.position[idx[j]] for j in self.joints]
+        pt.time_from_start.sec = 0
         pt.time_from_start.nanosec = 200_000_000  # 0.2s
 
         traj = JointTrajectory()
