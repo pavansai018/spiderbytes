@@ -34,6 +34,7 @@ setup(
     entry_points={
         'console_scripts': [
             'jsp_to_traj = spiderbytes.jsp_to_traj:main',
+            'gait_controller = spiderbytes.gait_controller:main',
         ],
     },
 )
