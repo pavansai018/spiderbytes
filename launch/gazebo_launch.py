@@ -134,6 +134,6 @@ def generate_launch_description():
     ld.add_action(start_robot_state_publisher_cmd)
 
     # Launch Joint State Publisher GUI
-    ld.add_action(joint_state_publisher_gui)
-    ld.add_action(jsp_to_traj_node)
+    # ld.add_action(joint_state_publisher_gui)
+    # ld.add_action(jsp_to_traj_node)
     return ld
