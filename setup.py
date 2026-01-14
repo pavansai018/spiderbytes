@@ -35,6 +35,7 @@ setup(
         'console_scripts': [
             'jsp_to_traj = spiderbytes.jsp_to_traj:main',
             'gait_controller = spiderbytes.gait_controller:main',
+            'wait_for_controller_manager = spiderbytes.wait_for_controller_manager:main',
         ],
     },
 )

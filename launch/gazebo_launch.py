@@ -109,9 +109,21 @@ def generate_launch_description():
         executable='jsp_to_traj',
         output='screen',
     )
-    spawn_controllers_after_entity = RegisterEventHandler(
+    # spawn_controllers_after_entity = RegisterEventHandler(
+    #     OnProcessExit(
+    #         target_action=gz_spawn_entity,
+    #         on_exit=[spawner_jsb, spawner_jtc],
+    #     )
+    # )
+    wait_for_cm = Node(
+        package='spiderbytes',
+        executable='wait_for_controller_manager',
+        output='screen'
+    )
+
+    spawn_after_cm = RegisterEventHandler(
         OnProcessExit(
-            target_action=gz_spawn_entity,
+            target_action=wait_for_cm,
             on_exit=[spawner_jsb, spawner_jtc],
         )
     )
@@ -127,9 +139,11 @@ def generate_launch_description():
     ld.add_action(gz_sim)
     ld.add_action(gz_spawn_entity)
     ld.add_action(gz_ros2_bridge)
+    ld.add_action(wait_for_cm)
+    ld.add_action(spawn_after_cm)
     # ld.add_action(spawner_jsb)
     # ld.add_action(spawner_jtc)
-    ld.add_action(spawn_controllers_after_entity)
+    # ld.add_action(spawn_controllers_after_entity)
     # Launch Robot State Publisher
     ld.add_action(start_robot_state_publisher_cmd)
 
