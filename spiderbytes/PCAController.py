@@ -10,7 +10,7 @@ class PCA9685Controller:
         self.pca.frequency = frequency
 
         self.period_us = 1_000_000 / frequency
-        self.us_per_step = self.period_us / 4096  # ~4.88 ï¿½s
+        self.us_per_step = self.period_us / 4096  # ~4.88
 
     def set_pulse_us(self, channel: int, pulse_us: float):
         steps = int(pulse_us / self.us_per_step)
