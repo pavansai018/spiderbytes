@@ -1,0 +1,1676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="spiderbytes_v3">
+<xacro:arg name="ros2_control_yaml" default=""/>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0391969431830278 0.0362135582697776 0.0686118723679995"
+        rpy="0 0 0" />
+      <mass
+        value="0.0340388036693426" />
+      <inertia
+        ixx="2.44770727621045E-05"
+        ixy="-5.14008515714323E-19"
+        ixz="4.2393006393355E-20"
+        iyy="4.7582397287103E-05"
+        iyz="-1.71102705343319E-19"
+        izz="2.72950308989321E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_battery">
+    <inertial>
+      <origin
+        xyz="-0.014719 0.0005253 0.064567"
+        rpy="0 0 0" />
+      <mass
+        value="0.045114" />
+      <inertia
+        ixx="2.0737E-05"
+        ixy="5.067E-22"
+        ixz="3.1334E-21"
+        iyy="2.2417E-05"
+        iyz="2.6203E-22"
+        izz="3.4954E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_battery.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_battery.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_battery"
+    type="fixed">
+    <origin
+      xyz="0.10368 -0.053893 0.023072"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_battery" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_pwm">
+    <inertial>
+      <origin
+        xyz="-0.000516617448400883 -0.00152424971082213 0.00151459153312111"
+        rpy="0 0 0" />
+      <mass
+        value="0.00798764310040845" />
+      <inertia
+        ixx="2.35818866994385E-06"
+        ixy="2.63777147139954E-09"
+        ixz="-5.9178717037376E-08"
+        iyy="2.80087740778153E-06"
+        iyz="2.80561561040446E-08"
+        izz="4.75166057740097E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_pwm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.00784313725490196 0.23921568627451 0.823529411764706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_pwm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_pwm"
+    type="fixed">
+    <origin
+      xyz="0.039197 -0.068612 0.038017"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_pwm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_top_plate">
+    <inertial>
+      <origin
+        xyz="-0.000444846893491196 0.0026799307348233 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0217679973832744" />
+      <inertia
+        ixx="1.98958787071042E-05"
+        ixy="4.23380328050878E-11"
+        ixz="7.09091373558721E-22"
+        iyy="3.99598472432502E-05"
+        iyz="-9.35255100743799E-23"
+        izz="2.0172375096183E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_top_plate.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_top_plate.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_top_plate"
+    type="fixed">
+    <origin
+      xyz="0.039197 -0.068612 0.067017"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_top_plate" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rpi">
+    <inertial>
+      <origin
+        xyz="0.024774581502991 0.00341903766312919 0.0239604542704623"
+        rpy="0 0 0" />
+      <mass
+        value="0.0186966914652476" />
+      <inertia
+        ixx="2.28197557987326E-06"
+        ixy="-6.25632487012824E-09"
+        ixz="1.01518316095487E-08"
+        iyy="6.97863914884011E-06"
+        iyz="1.8536615034247E-10"
+        izz="5.0176231176378E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rpi.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.647058823529412 0.517647058823529 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rpi.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_rpi"
+    type="fixed">
+    <origin
+      xyz="-0.01 0.0101 -0.0245"
+      rpy="0 0 0" />
+    <parent
+      link="link_top_plate" />
+    <child
+      link="link_rpi" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rotation_1">
+    <inertial>
+      <origin
+        xyz="-0.022108937837177 -0.0132421365474836 0.00314002313535405"
+        rpy="0 0 0" />
+      <mass
+        value="0.00723872418872687" />
+      <inertia
+        ixx="5.22774747679675E-07"
+        ixy="-1.49834845338893E-07"
+        ixz="3.68055935153169E-07"
+        iyy="3.27257999855941E-06"
+        iyz="2.85909361784708E-08"
+        izz="3.2165395863583E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_rotation_1"
+    type="revolute">
+    <origin
+      xyz="0.078161 -0.10758 0.031017"
+      rpy="-1.5708 0 2.3807" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_rotation_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_1_1">
+    <inertial>
+      <origin
+        xyz="2.67167269890622E-06 -0.00430214391107005 2.28757406134372E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193943982337" />
+      <inertia
+        ixx="6.92531402818575E-08"
+        ixy="-2.31976544259887E-09"
+        ixz="1.02619682196552E-09"
+        iyy="1.98851174311698E-07"
+        iyz="5.72081671259838E-12"
+        izz="1.76654950483782E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_1_1"
+    type="fixed">
+    <origin
+      xyz="-0.0055 -0.025 0"
+      rpy="3.1416 0 0" />
+    <parent
+      link="link_rotation_1" />
+    <child
+      link="link_servo_1_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_servo_1_2">
+    <inertial>
+      <origin
+        xyz="2.67130704714735E-06 0.0131978561840808 2.28766580637196E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193943485351" />
+      <inertia
+        ixx="6.92531440609955E-08"
+        ixy="-2.31976957259841E-09"
+        ixz="1.02619586647779E-09"
+        iyy="1.98851174977041E-07"
+        iyz="5.71932843615699E-12"
+        izz="1.76654951752856E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_1_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_1_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_1_2"
+    type="fixed">
+    <origin
+      xyz="-0.0385 -0.0145 0.011"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link_rotation_1" />
+    <child
+      link="link_servo_1_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_limb_1">
+    <inertial>
+      <origin
+        xyz="0.0355 1.38777878078145E-17 -0.00424439919105866"
+        rpy="0 0 0" />
+      <mass
+        value="0.0122900929113511" />
+      <inertia
+        ixx="3.89424770122986E-06"
+        ixy="1.05879118406788E-21"
+        ixz="-5.29395592033938E-22"
+        iyy="8.48053814353778E-06"
+        iyz="-1.05879118406788E-22"
+        izz="5.00726458223548E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_limb_1"
+    type="revolute">
+    <origin
+      xyz="-0.033 -0.0145 0"
+      rpy="0 0 -2.4811" />
+    <parent
+      link="link_rotation_1" />
+    <child
+      link="link_limb_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_leg_1">
+    <inertial>
+      <origin
+        xyz="-0.0119414613822854 0.00574131596985428 -0.023372019794546"
+        rpy="0 0 0" />
+      <mass
+        value="0.0168535864394612" />
+      <inertia
+        ixx="9.00062617030877E-06"
+        ixy="5.26664891472336E-08"
+        ixz="-1.77596400784877E-06"
+        iyy="9.92645327529007E-06"
+        iyz="4.40450716723103E-07"
+        izz="2.02787228834511E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg_1"
+    type="revolute">
+    <origin
+      xyz="0.071 0 0"
+      rpy="1.5708 0 2.4731" />
+    <parent
+      link="link_limb_1" />
+    <child
+      link="link_leg_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_1_3">
+    <inertial>
+      <origin
+        xyz="2.67127765823938E-06 0.0061978562375843 2.28767688238707E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193942630469" />
+      <inertia
+        ixx="6.92531441754895E-08"
+        ixy="-2.31976997216726E-09"
+        ixz="1.02619578674679E-09"
+        iyy="1.98851174971836E-07"
+        iyz="5.71922216164783E-12"
+        izz="1.7665495180406E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_1_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_1_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_1_3"
+    type="fixed">
+    <origin
+      xyz="-0.00525 0.004 -0.0005"
+      rpy="-3.1416 0 0" />
+    <parent
+      link="link_leg_1" />
+    <child
+      link="link_servo_1_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rotation_2">
+    <inertial>
+      <origin
+        xyz="-0.022108937837177 -0.0132421365474836 0.00314002313535407"
+        rpy="0 0 0" />
+      <mass
+        value="0.00723872418872687" />
+      <inertia
+        ixx="5.22774747679674E-07"
+        ixy="-1.49834845338892E-07"
+        ixz="3.68055935153168E-07"
+        iyy="3.27257999855941E-06"
+        iyz="2.85909361784708E-08"
+        izz="3.2165395863583E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_rotation_2"
+    type="revolute">
+    <origin
+      xyz="0.078161 -0.029647 0.031017"
+      rpy="-1.5708 0 -2.3281" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_rotation_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_2_1">
+    <inertial>
+      <origin
+        xyz="2.67167262499313E-06 -0.00430214391062643 2.28757416002867E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193943974115" />
+      <inertia
+        ixx="6.92531402801715E-08"
+        ixy="-2.31976544310734E-09"
+        ixz="1.02619682074861E-09"
+        iyy="1.98851174309488E-07"
+        iyz="5.72081688128491E-12"
+        izz="1.76654950481828E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_2_1"
+    type="fixed">
+    <origin
+      xyz="-0.0055 -0.025 0"
+      rpy="3.1416 0 0" />
+    <parent
+      link="link_rotation_2" />
+    <child
+      link="link_servo_2_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_servo_2_2">
+    <inertial>
+      <origin
+        xyz="2.67130666627147E-06 0.00619785619462351 2.28766688779858E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193943297475" />
+      <inertia
+        ixx="6.92531440202135E-08"
+        ixy="-2.31976958810984E-09"
+        ixz="1.02619586169796E-09"
+        iyy="1.98851174958225E-07"
+        iyz="5.71933069787127E-12"
+        izz="1.76654951737124E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_2_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_2_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_2_2"
+    type="fixed">
+    <origin
+      xyz="-0.0385 -0.0145 0.004"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link_rotation_2" />
+    <child
+      link="link_servo_2_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_limb_2">
+    <inertial>
+      <origin
+        xyz="0.0355 -5.20417042793042E-18 -0.0042443991910586"
+        rpy="0 0 0" />
+      <mass
+        value="0.0122900929113511" />
+      <inertia
+        ixx="3.89424770122986E-06"
+        ixy="7.41153828847513E-22"
+        ixz="3.17637355220363E-22"
+        iyy="8.48053814353778E-06"
+        iyz="-2.5410988417629E-21"
+        izz="5.00726458223548E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_limb_2"
+    type="revolute">
+    <origin
+      xyz="-0.033 -0.0145 0"
+      rpy="0 0 -2.4515" />
+    <parent
+      link="link_rotation_2" />
+    <child
+      link="link_limb_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_leg_2">
+    <inertial>
+      <origin
+        xyz="-0.0119414618512552 0.00574131579606729 -0.0233720197476509"
+        rpy="0 0 0" />
+      <mass
+        value="0.0168535867623781" />
+      <inertia
+        ixx="9.00062617356067E-06"
+        ixy="5.26664104387235E-08"
+        ixz="-1.77596394405419E-06"
+        iyy="9.92645287420006E-06"
+        iyz="4.40450729413551E-07"
+        izz="2.02787194743021E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg_2"
+    type="revolute">
+    <origin
+      xyz="0.071 0 0"
+      rpy="1.5708 0 2.4702" />
+    <parent
+      link="link_limb_2" />
+    <child
+      link="link_leg_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_2_3">
+    <inertial>
+      <origin
+        xyz="2.6713062245276E-06 0.0131978562390301 2.28767204787927E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193942492555" />
+      <inertia
+        ixx="6.92531438212554E-08"
+        ixy="-2.31976962350004E-09"
+        ixz="1.02619582564712E-09"
+        iyy="1.98851174841267E-07"
+        iyz="5.71935219996155E-12"
+        izz="1.76654951631344E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_2_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_2_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_2_3"
+    type="fixed">
+    <origin
+      xyz="-0.00525 0.011 0.0005"
+      rpy="3.1416 0 0" />
+    <parent
+      link="link_leg_2" />
+    <child
+      link="link_servo_2_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rotation_3">
+    <inertial>
+      <origin
+        xyz="-0.022108937837177 -0.0132421365474837 0.00314002313535407"
+        rpy="0 0 0" />
+      <mass
+        value="0.00723872418872688" />
+      <inertia
+        ixx="5.22774747679675E-07"
+        ixy="-1.49834845338893E-07"
+        ixz="3.6805593515317E-07"
+        iyy="3.27257999855942E-06"
+        iyz="2.85909361784709E-08"
+        izz="3.21653958635831E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_rotation_3"
+    type="revolute">
+    <origin
+      xyz="0.00023248 -0.029647 0.031017"
+      rpy="-1.5708 0 -0.80128" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_rotation_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_3_1">
+    <inertial>
+      <origin
+        xyz="2.67167330219795E-06 -0.00430214391155772 2.28757344642588E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193943993923" />
+      <inertia
+        ixx="6.92531402840443E-08"
+        ixy="-2.31976544375924E-09"
+        ixz="1.02619683312853E-09"
+        iyy="1.98851174328375E-07"
+        iyz="5.72081557886354E-12"
+        izz="1.76654950499405E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_3_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_3_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_3_1"
+    type="fixed">
+    <origin
+      xyz="-0.0055 -0.025 0"
+      rpy="3.1416 0 0" />
+    <parent
+      link="link_rotation_3" />
+    <child
+      link="link_servo_3_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_servo_3_2">
+    <inertial>
+      <origin
+        xyz="2.67131292349537E-06 -0.00430214393932516 2.28765280560483E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193945679526" />
+      <inertia
+        ixx="6.92531445211909E-08"
+        ixy="-2.31976937458013E-09"
+        ixz="1.02619592597107E-09"
+        iyy="1.98851175193171E-07"
+        iyz="5.71930817265379E-12"
+        izz="1.76654951930595E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_3_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_3_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_3_2"
+    type="fixed">
+    <origin
+      xyz="-0.0385 -0.0145 -0.0065"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link_rotation_3" />
+    <child
+      link="link_servo_3_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_limb_3">
+    <inertial>
+      <origin
+        xyz="0.0355 3.46944695195361E-18 -0.00424439919105859"
+        rpy="0 0 0" />
+      <mass
+        value="0.0122900929113511" />
+      <inertia
+        ixx="3.89424770122985E-06"
+        ixy="-8.470329472543E-22"
+        ixz="4.02340649945793E-21"
+        iyy="8.48053814353776E-06"
+        iyz="7.41153828847513E-22"
+        izz="5.00726458223546E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_limb_3"
+    type="revolute">
+    <origin
+      xyz="-0.033 -0.0145 0"
+      rpy="0 0 -2.4471" />
+    <parent
+      link="link_rotation_3" />
+    <child
+      link="link_limb_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_leg_3">
+    <inertial>
+      <origin
+        xyz="-0.0119414621657177 0.00574131569111758 -0.0233720197009008"
+        rpy="0 0 0" />
+      <mass
+        value="0.0168535869539934" />
+      <inertia
+        ixx="9.00062616653394E-06"
+        ixy="5.2666357942146E-08"
+        ixz="-1.7759639015674E-06"
+        iyy="9.92645260133891E-06"
+        iyz="4.40450737372184E-07"
+        izz="2.02787171896679E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg_3"
+    type="revolute">
+    <origin
+      xyz="0.071 0 0"
+      rpy="1.5708 0 2.4783" />
+    <parent
+      link="link_limb_3" />
+    <child
+      link="link_leg_3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_3_3">
+    <inertial>
+      <origin
+        xyz="2.67131107137275E-06 -0.00430214386631819 2.28766215219778E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193944354092" />
+      <inertia
+        ixx="6.92531441988085E-08"
+        ixy="-2.31976943492598E-09"
+        ixz="1.02619585142168E-09"
+        iyy="1.98851174981283E-07"
+        iyz="5.71934326834013E-12"
+        izz="1.76654951738805E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_3_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_3_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_3_3"
+    type="fixed">
+    <origin
+      xyz="-0.00525 -0.0065 -0.0005"
+      rpy="3.1416 0 0" />
+    <parent
+      link="link_leg_3" />
+    <child
+      link="link_servo_3_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_rotation_4">
+    <inertial>
+      <origin
+        xyz="-0.022108937837177 -0.0132421365474836 0.00314002313535408"
+        rpy="0 0 0" />
+      <mass
+        value="0.00723872418872688" />
+      <inertia
+        ixx="5.22774747679676E-07"
+        ixy="-1.49834845338892E-07"
+        ixz="3.6805593515317E-07"
+        iyy="3.27257999855942E-06"
+        iyz="2.85909361784708E-08"
+        izz="3.21653958635831E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_rotation_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_rotation_4"
+    type="revolute">
+    <origin
+      xyz="0.00023248 -0.10758 0.031017"
+      rpy="-1.5708 0 0.73985" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_rotation_4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_4_1">
+    <inertial>
+      <origin
+        xyz="2.67167353548703E-06 0.00619785609342193 2.28757352352393E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193943906811" />
+      <inertia
+        ixx="6.92531402657968E-08"
+        ixy="-2.31976545296947E-09"
+        ixz="1.02619683947414E-09"
+        iyy="1.98851174332585E-07"
+        iyz="5.72081554229575E-12"
+        izz="1.76654950504897E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_4_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_4_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_4_1"
+    type="fixed">
+    <origin
+      xyz="-0.0055 -0.0145 0"
+      rpy="3.1416 0 0" />
+    <parent
+      link="link_rotation_4" />
+    <child
+      link="link_servo_4_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_servo_4_2">
+    <inertial>
+      <origin
+        xyz="2.67131895739792E-06 0.0131978559683788 2.28764268501991E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193947314956" />
+      <inertia
+        ixx="6.92531448454416E-08"
+        ixy="-2.31976920748277E-09"
+        ixz="1.02619597455097E-09"
+        iyy="1.98851175349921E-07"
+        iyz="5.71930022535879E-12"
+        izz="1.76654952055887E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_4_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_4_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_4_2"
+    type="fixed">
+    <origin
+      xyz="-0.0385 -0.0145 0.011"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="link_rotation_4" />
+    <child
+      link="link_servo_4_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="link_limb_4">
+    <inertial>
+      <origin
+        xyz="0.0354999999999999 2.77555756156289E-17 -0.00424439919105857"
+        rpy="0 0 0" />
+      <mass
+        value="0.0122900929113511" />
+      <inertia
+        ixx="3.89424770122985E-06"
+        ixy="-1.64112633530521E-21"
+        ixz="2.64697796016969E-21"
+        iyy="8.48053814353776E-06"
+        iyz="4.34104385467829E-21"
+        izz="5.00726458223547E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_limb_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_limb_4"
+    type="revolute">
+    <origin
+      xyz="-0.033 -0.0145 0"
+      rpy="0 0 -2.4497" />
+    <parent
+      link="link_rotation_4" />
+    <child
+      link="link_limb_4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_leg_4">
+    <inertial>
+      <origin
+        xyz="-0.0119414614232863 0.005741315935359 -0.0233720198144663"
+        rpy="0 0 0" />
+      <mass
+        value="0.0168535865155012" />
+      <inertia
+        ixx="9.00062618622104E-06"
+        ixy="5.26664827555251E-08"
+        ixz="-1.77596400017026E-06"
+        iyy="9.92645324150362E-06"
+        iyz="4.40450719399862E-07"
+        izz="2.02787225233135E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_leg_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_leg_4"
+    type="revolute">
+    <origin
+      xyz="0.071 0 0"
+      rpy="1.5708 0 2.4512" />
+    <parent
+      link="link_limb_4" />
+    <child
+      link="link_leg_4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="10"
+      velocity="100" />
+      <dynamics damping="0.5" friction="0.2"/>
+  </joint>
+  <link
+    name="link_servo_4_3">
+    <inertial>
+      <origin
+        xyz="2.67131967279788E-06 0.00619785597464148 2.28764309818941E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.00241193947200566" />
+      <inertia
+        ixx="6.92531448109802E-08"
+        ixy="-2.31976920660545E-09"
+        ixz="1.02619597448952E-09"
+        iyy="1.98851175337351E-07"
+        iyz="5.71930522290562E-12"
+        izz="1.76654952043713E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_4_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file://$(find spiderbytes)/meshes/link_servo_4_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_servo_4_3"
+    type="fixed">
+    <origin
+      xyz="-0.00525 0.004 -0.0005"
+      rpy="-3.1416 0 0" />
+    <parent
+      link="link_leg_4" />
+    <child
+      link="link_servo_4_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+<ros2_control name="spiderbytes_system" type="system">
+  <hardware>
+    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+  </hardware>
+  <joint name="joint_rotation_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_rotation_2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_rotation_3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_rotation_4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_limb_4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_1">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_2">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_3">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+    <joint name="joint_leg_4">
+    <command_interface name="position"/>
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+  </joint>
+</ros2_control>
+<gazebo>
+  <plugin
+      filename="gz_ros2_control-system"
+      name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+    <parameters>$(arg ros2_control_yaml)</parameters>
+  </plugin>
+</gazebo>
+
+</robot>
