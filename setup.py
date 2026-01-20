@@ -7,7 +7,7 @@ package_name = 'spiderbytes'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    packages=find_packages(exclude=['test', 'spiderbytes/__pycache__']),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -19,7 +19,7 @@ setup(
         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*'))),
         (os.path.join('share', package_name, 'nodes'), glob(os.path.join('nodes', '*'))),
         (os.path.join('share', package_name, 'world'), glob(os.path.join('world', '*.*'))),
-        (os.path.join('share', package_name, 'spiderbytes'), glob(os.path.join('spiderbytes', '*'))),
+        # (os.path.join('share', package_name, 'spiderbytes'), glob(os.path.join('spiderbytes', '*'))),
 
     ],
     install_requires=['setuptools'],
