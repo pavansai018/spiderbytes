@@ -24,10 +24,6 @@
     </inertial>
 </link>
 
-  <!-- ================================================= -->
-  <!-- FRONT LEFT LEG                                   -->
-  <!-- ================================================= -->
-
   <!-- HIP -->
   <link name="hip_fl">
     <visual>
@@ -122,10 +118,6 @@
     <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
   </joint>
 
-  <!-- ================================================= -->
-  <!-- OTHER LEGS (FR, RL, RR)                           -->
-  <!-- Same kinematics, mirrored origins                -->
-  <!-- ================================================= -->
 
   <!-- FRONT RIGHT -->
   <joint name="hip_joint_fr" type="revolute">
@@ -357,13 +349,12 @@
 </inertial>
   </link>
 
-  <!-- ========================= GAZEBO CONTACT (FEET) ========================= -->
+
   <gazebo reference="leg_fl"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
   <gazebo reference="leg_fr"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
   <gazebo reference="leg_rr"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
   <gazebo reference="leg_rr"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
 
-  <!-- ========================= ROS2 CONTROL ========================= -->
   <ros2_control name="spiderbytes_system" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>

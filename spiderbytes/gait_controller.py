@@ -3,13 +3,9 @@ import rclpy
 from rclpy.node import Node
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from builtin_interfaces.msg import Duration
+import variables
 
-JOINTS = [
-    "joint_rotation_1","joint_limb_1","joint_leg_1",
-    "joint_rotation_2","joint_limb_2","joint_leg_2",
-    "joint_rotation_3","joint_limb_3","joint_leg_3",
-    "joint_rotation_4","joint_limb_4","joint_leg_4",
-]
+JOINTS = variables.spiderbytes_joints
 
 def leg_idx(leg: int):
     # leg 1..4 -> base index in JOINTS
