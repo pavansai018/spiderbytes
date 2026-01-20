@@ -51,7 +51,7 @@
     <child link="hip_fl"/>
     <origin xyz="0.2 0.15 0" rpy="0 0 1.5708"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.57" upper="1.57" effort="10" velocity="2"/>
+    <limit lower="-1.57" upper="1.57" effort="100" velocity="100"/>
   </joint>
 
   <!-- THIGH -->
@@ -83,7 +83,7 @@
     <child link="thigh_fl"/>
     <origin xyz="0.025 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
 
   <!-- LEG -->
@@ -115,7 +115,7 @@
     <child link="leg_fl"/>
     <origin xyz="0.2 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
 
 
@@ -125,7 +125,7 @@
     <child link="hip_fr"/>
     <origin xyz="0.2 -0.15 0" rpy="0 0 -1.5708"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="hip_fr">
     <visual>
@@ -154,7 +154,7 @@
     <child link="thigh_fr"/>
     <origin xyz="0.025 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="thigh_fr"><visual><origin xyz="0.1 0 0" rpy="0 1.5708 0"/><geometry><cylinder radius="0.025" length="0.2"/></geometry></visual>
    <collision>
@@ -179,7 +179,7 @@
     <child link="leg_fr"/>
     <origin xyz="0.2 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="leg_fr"><visual><origin xyz="0 0 -0.15"/><geometry><cylinder radius="0.02" length="0.3"/></geometry></visual>
     <collision>
@@ -205,7 +205,7 @@
     <child link="hip_rl"/>
     <origin xyz="-0.2 0.15 0" rpy="0 0 1.5708"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="hip_rl"><visual><geometry><cylinder radius="0.03" length="0.05"/></geometry></visual>
    <collision>
@@ -229,7 +229,7 @@
     <child link="thigh_rl"/>
     <origin xyz="0.025 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="thigh_rl"><visual><origin xyz="0.1 0 0" rpy="0 1.5708 0"/><geometry><cylinder radius="0.025" length="0.2"/></geometry></visual>
    <collision>
@@ -254,7 +254,7 @@
     <child link="leg_rl"/>
     <origin xyz="0.2 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="leg_rl"><visual><origin xyz="0 0 -0.15"/><geometry><cylinder radius="0.02" length="0.3"/></geometry></visual>
    <collision>
@@ -280,7 +280,7 @@
     <child link="hip_rr"/>
     <origin xyz="-0.2 -0.15 0" rpy="0 0 -1.5708"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="hip_rr"><visual><geometry><cylinder radius="0.03" length="0.05"/></geometry></visual>
     <collision>
@@ -304,7 +304,7 @@
     <child link="thigh_rr"/>
     <origin xyz="0.025 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="thigh_rr"><visual><origin xyz="0.1 0 0" rpy="0 1.5708 0"/><geometry><cylinder radius="0.025" length="0.2"/></geometry></visual>
    <collision>
@@ -329,7 +329,7 @@
     <child link="leg_rr"/>
     <origin xyz="0.2 0 0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="2"/>
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100"/>
   </joint>
   <link name="leg_rr"><visual><origin xyz="0 0 -0.15"/><geometry><cylinder radius="0.02" length="0.3"/></geometry></visual>
     <collision>
