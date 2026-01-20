@@ -1,9 +1,9 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler, ExecuteProcess, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import Command, LaunchConfiguration
+from launch.substitutions import Command, LaunchConfiguration,PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 from launch.event_handlers import OnProcessExit
@@ -13,9 +13,8 @@ def generate_launch_description():
     # Create the launch configuration variables
     use_sim_time = LaunchConfiguration('use_sim_time')
     urdf = os.path.join(get_package_share_directory(
-        'spiderbytes'), 'urdf', 'spider.xacro')
-    control_yaml_file = os.path.join(get_package_share_directory('spiderbytes'), 'config', 'ros2_control.yaml')
-    # world = LaunchConfiguration('world')
+        'spiderbytes'), 'urdf', 'spidey_v7.xacro')
+    control_yaml_file = os.path.join(get_package_share_directory('spiderbytes'), 'config', 'ros2_control_v2.yaml')
 
     robot_desc = ParameterValue(Command(['xacro ', urdf, ' ', 'ros2_control_yaml:=', control_yaml_file]),
                                        value_type=str)
@@ -24,23 +23,16 @@ def generate_launch_description():
         'use_sim_time',
         default_value='true',
         description='Use simulation (Gazebo) clock if true')
-    
-    declare_world_cmd = DeclareLaunchArgument(
-        'world',
-        default_value='empty.sdf',
-        description='World file to use in Gazebo')
-    
-    gz_world_arg = LaunchConfiguration('world')
+    world_file = os.path.join(get_package_share_directory('spiderbytes'), 'world', 'black_circle.sdf')
 
     # Include the gz sim launch file  
     gz_sim_share = get_package_share_directory("ros_gz_sim")
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(gz_sim_share, "launch", "gz_sim.launch.py")),
         launch_arguments={
-            "gz_args" : '-r empty.sdf', #gz_world_arg 
+            "gz_args" :  f'-r {world_file}' #'-r empty.sdf'
         }.items()
     )
-    
     # Spawn Rover Robot
     gz_spawn_entity = Node(
         package="ros_gz_sim",
@@ -64,7 +56,7 @@ def generate_launch_description():
             # '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
             # '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
             # '/imu/data@sensor_msgs/msg/Imu@gz.msgs.IMU',
-            # '/camera@sensor_msgs/msg/Image@gz.msgs.Image'
+            '/camera@sensor_msgs/msg/Image@gz.msgs.Image'
         ],
     )
 
@@ -133,8 +125,6 @@ def generate_launch_description():
 
     # Declare the launch options
     ld.add_action(declare_use_sim_time_cmd)
-    ld.add_action(declare_world_cmd)
-
     # Launch Gazebo
     ld.add_action(gz_sim)
     ld.add_action(gz_spawn_entity)
