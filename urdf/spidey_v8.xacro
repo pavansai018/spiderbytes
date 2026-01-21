@@ -426,12 +426,120 @@
       iyz="0"/>
   </inertial>
   </link>
+<link name="foot_fl">
+  <collision>
+    <!-- Put it at the tip/bottom of your leg -->
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="0.02"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0" ixz="0" iyz="0"/>
+  </inertial>
+</link>
+
+<joint name="foot_joint_fl" type="fixed">
+  <parent link="leg_fl"/>
+  <child link="foot_fl"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="foot_fr">
+  <collision>
+    <!-- Put it at the tip/bottom of your leg -->
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="0.02"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0" ixz="0" iyz="0"/>
+  </inertial>
+</link>
+
+<joint name="foot_joint_fr" type="fixed">
+  <parent link="leg_fr"/>
+  <child link="foot_fr"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="foot_rl">
+  <collision>
+    <!-- Put it at the tip/bottom of your leg -->
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="0.02"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0" ixz="0" iyz="0"/>
+  </inertial>
+</link>
+
+<joint name="foot_joint_rl" type="fixed">
+  <parent link="leg_rl"/>
+  <child link="foot_rl"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+<link name="foot_rr">
+  <collision>
+    <!-- Put it at the tip/bottom of your leg -->
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin xyz="0.040 0 -0.105" rpy="0 0 0"/>
+    <geometry>
+      <sphere radius="0.018"/>
+    </geometry>
+  </visual>
+  <inertial>
+    <mass value="0.02"/>
+    <inertia ixx="1e-5" iyy="1e-5" izz="1e-5" ixy="0" ixz="0" iyz="0"/>
+  </inertial>
+</link>
+
+<joint name="foot_joint_rr" type="fixed">
+  <parent link="leg_rr"/>
+  <child link="foot_rr"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
 
 
-  <gazebo reference="leg_fl"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
-  <gazebo reference="leg_fr"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
-  <gazebo reference="leg_rr"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
-  <gazebo reference="leg_rr"><mu1>1.2</mu1><mu2>1.2</mu2></gazebo>
+
+  <!-- <gazebo reference="leg_fl"><mu1>5</mu1><mu2>5</mu2></gazebo>
+  <gazebo reference="leg_fr"><mu1>5</mu1><mu2>5</mu2></gazebo>
+  <gazebo reference="leg_rr"><mu1>5</mu1><mu2>5</mu2></gazebo>
+  <gazebo reference="leg_rl"><mu1>5</mu1><mu2>5</mu2></gazebo> -->
+    <gazebo reference="foot_fl"><mu1>5</mu1><mu2>5</mu2></gazebo>
+  <gazebo reference="foot_fr"><mu1>5</mu1><mu2>5</mu2></gazebo>
+  <gazebo reference="foot_rr"><mu1>5</mu1><mu2>5</mu2></gazebo>
+  <gazebo reference="foot_rl"><mu1>5</mu1><mu2>5</mu2></gazebo>
 
   <ros2_control name="spiderbytes_system" type="system">
     <hardware>
