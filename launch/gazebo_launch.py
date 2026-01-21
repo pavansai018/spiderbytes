@@ -13,8 +13,8 @@ def generate_launch_description():
     # Create the launch configuration variables
     use_sim_time = LaunchConfiguration('use_sim_time')
     urdf = os.path.join(get_package_share_directory(
-        'spiderbytes'), 'urdf', 'spidey_v7.xacro')
-    control_yaml_file = os.path.join(get_package_share_directory('spiderbytes'), 'config', 'ros2_control_v2.yaml')
+        'spiderbytes'), 'urdf', 'spidey_v8.xacro')
+    control_yaml_file = os.path.join(get_package_share_directory('spiderbytes'), 'config', 'ros2_position_group_control.yaml')
 
     robot_desc = ParameterValue(Command(['xacro ', urdf, ' ', 'ros2_control_yaml:=', control_yaml_file]),
                                        value_type=str)
@@ -96,6 +96,13 @@ def generate_launch_description():
         arguments=['joint_trajectory_controller', '--controller-manager', '/controller_manager'],
         output='screen',
     )
+
+    spawner_jgpc = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_group_position_controller', '--controller-manager', '/controller_manager'],
+        output='screen',
+    )
     jsp_to_traj_node = Node(
         package='spiderbytes',
         executable='jsp_to_traj',
@@ -116,7 +123,11 @@ def generate_launch_description():
     spawn_after_cm = RegisterEventHandler(
         OnProcessExit(
             target_action=wait_for_cm,
-            on_exit=[spawner_jsb, spawner_jtc],
+            on_exit=[
+                spawner_jsb, 
+                # spawner_jtc,
+                spawner_jgpc,
+            ],
         )
     )
 
