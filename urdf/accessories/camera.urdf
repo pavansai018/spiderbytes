@@ -49,11 +49,11 @@
         <visualize>true</visualize>
         <update_rate>10</update_rate>
         <camera>
-          <horizontal_fov>1.1</horizontal_fov>
+          <horizontal_fov>1.745</horizontal_fov>
           <image>
             <format>R8G8B8</format>
-            <width>640</width>
-            <height>480</height>
+            <width>1280</width>
+            <height>720</height>
           </image>
           <clip>
             <near>0.05</near>
