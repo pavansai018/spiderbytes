@@ -4,21 +4,13 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="spiderbytes_v4">
 <xacro:arg name="ros2_control_yaml" default=""/>
-<link name="base_center"/>
 
-<joint name="base_center_to_base_link" type="fixed">
-  <parent link="base_center"/>
-  <child link="base_link"/>
-  <!-- base_link is currently offset from the desired center,
-       so we shift it back by (-x_center, -y_center, -z_center) -->
-  <origin xyz="-0.03919674 0.0686135 -0.031017" rpy="0 0 0"/>
-</joint>
 
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.0413582479580724 -0.0684979473552703 0.0437905982799252"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.127585531100261" />
@@ -36,7 +28,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_base_link.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_base_link.stl" />
       </geometry>
       <material
         name="">
@@ -50,7 +42,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_base_link.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_base_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -58,7 +50,7 @@
     name="link_rotation_1">
     <inertial>
       <origin
-        xyz="-0.022064 -0.014984 0.0014444"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.012063" />
@@ -76,7 +68,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_1.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_1.stl" />
       </geometry>
       <material
         name="">
@@ -90,7 +82,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_1.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_1.stl" />
       </geometry>
     </collision>
   </link>
@@ -98,7 +90,7 @@
     name="joint_rotation_1"
     type="revolute">
     <origin
-      xyz="0.078161 -0.10758 0.031017"
+      xyz="0.0518161 -0.050758 -0.021017"
       rpy="-1.5708 0 2.3807" />
     <parent
       link="base_link" />
@@ -134,7 +126,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_1.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_1.stl" />
       </geometry>
       <material
         name="">
@@ -148,7 +140,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_1.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_1.stl" />
       </geometry>
     </collision>
   </link>
@@ -156,7 +148,7 @@
     name="joint_limb_1"
     type="revolute">
     <origin
-      xyz="-0.033 -0.0145 0"
+      xyz="-0.04 -0.017 -0.005"
       rpy="0 0 -2.4811" />
     <parent
       link="link_rotation_1" />
@@ -192,7 +184,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_1.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_1.stl" />
       </geometry>
       <material
         name="">
@@ -206,7 +198,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_1.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_1.stl" />
       </geometry>
     </collision>
   </link>
@@ -214,7 +206,7 @@
     name="joint_leg_1"
     type="revolute">
     <origin
-      xyz="0.071 0 0"
+      xyz="0.04 -0.001 0.0"
       rpy="1.5708 0 2.4731" />
     <parent
       link="link_limb_1" />
@@ -232,7 +224,7 @@
     name="link_rotation_2">
     <inertial>
       <origin
-        xyz="-0.0220653731604028 -0.0149848907461824 0.00144439372853883"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.0120626030919505" />
@@ -250,7 +242,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_2.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_2.stl" />
       </geometry>
       <material
         name="">
@@ -264,7 +256,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_2.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_2.stl" />
       </geometry>
     </collision>
   </link>
@@ -272,7 +264,7 @@
     name="joint_rotation_2"
     type="revolute">
     <origin
-      xyz="0.078161 -0.029647 0.031017"
+      xyz="0.0518161 0.050758 -0.021017"
       rpy="-1.5708 0 -2.3281" />
     <parent
       link="base_link" />
@@ -308,7 +300,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_2.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_2.stl" />
       </geometry>
       <material
         name="">
@@ -322,7 +314,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_2.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_2.stl" />
       </geometry>
     </collision>
   </link>
@@ -330,7 +322,7 @@
     name="joint_limb_2"
     type="revolute">
     <origin
-      xyz="-0.033 -0.0145 0"
+      xyz="-0.04 -0.017 -0.005"
       rpy="0 0 -2.4515" />
     <parent
       link="link_rotation_2" />
@@ -366,7 +358,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_2.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_2.stl" />
       </geometry>
       <material
         name="">
@@ -380,7 +372,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_2.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_2.stl" />
       </geometry>
     </collision>
   </link>
@@ -388,7 +380,7 @@
     name="joint_leg_2"
     type="revolute">
     <origin
-      xyz="0.071 0 0"
+      xyz="0.04 0.001 0.0"
       rpy="1.5708 0 2.4702" />
     <parent
       link="link_limb_2" />
@@ -406,7 +398,7 @@
     name="link_rotation_3">
     <inertial>
       <origin
-        xyz="-0.0220653732945323 -0.0149839759064863 0.0014453085320847"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.0120626030854614" />
@@ -424,7 +416,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_3.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_3.stl" />
       </geometry>
       <material
         name="">
@@ -438,7 +430,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_3.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_3.stl" />
       </geometry>
     </collision>
   </link>
@@ -446,7 +438,7 @@
     name="joint_rotation_3"
     type="revolute">
     <origin
-      xyz="0.00023248 -0.029647 0.031017"
+      xyz="-0.0518161 0.050758 -0.021017"
       rpy="-1.5708 0 -0.80128" />
     <parent
       link="base_link" />
@@ -482,7 +474,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_3.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_3.stl" />
       </geometry>
       <material
         name="">
@@ -496,7 +488,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_3.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_3.stl" />
       </geometry>
     </collision>
   </link>
@@ -504,7 +496,7 @@
     name="joint_limb_3"
     type="revolute">
     <origin
-      xyz="-0.033 -0.0145 0"
+      xyz="-0.04 -0.017 -0.005"
       rpy="0 0 -2.4471" />
     <parent
       link="link_rotation_3" />
@@ -540,7 +532,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_3.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_3.stl" />
       </geometry>
       <material
         name="">
@@ -554,7 +546,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_3.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_3.stl" />
       </geometry>
     </collision>
   </link>
@@ -562,7 +554,7 @@
     name="joint_leg_3"
     type="revolute">
     <origin
-      xyz="0.071 0 0"
+      xyz="0.04 -0.001 0.0"
       rpy="1.5708 0 2.4783" />
     <parent
       link="link_limb_3" />
@@ -580,7 +572,7 @@
     name="link_rotation_4">
     <inertial>
       <origin
-        xyz="-0.0220643049048772 -0.0149839759084337 0.00144439373674282"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="0.0120626031009445" />
@@ -598,7 +590,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_4.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_4.stl" />
       </geometry>
       <material
         name="">
@@ -612,7 +604,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_4.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_rotation_4.stl" />
       </geometry>
     </collision>
   </link>
@@ -620,7 +612,7 @@
     name="joint_rotation_4"
     type="revolute">
     <origin
-      xyz="0.00023248 -0.10758 0.031017"
+      xyz="-0.0518161 -0.050758 -0.021017"
       rpy="-1.5708 0 0.73985" />
     <parent
       link="base_link" />
@@ -656,7 +648,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_4.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_4.stl" />
       </geometry>
       <material
         name="">
@@ -670,7 +662,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_limb_4.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_limb_4.stl" />
       </geometry>
     </collision>
   </link>
@@ -678,7 +670,7 @@
     name="joint_limb_4"
     type="revolute">
     <origin
-      xyz="-0.033 -0.0145 0"
+      xyz="-0.04 -0.017 -0.005"
       rpy="0 0 -2.4497" />
     <parent
       link="link_rotation_4" />
@@ -714,7 +706,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_4.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_4.stl" />
       </geometry>
       <material
         name="">
@@ -728,7 +720,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file://$(find spiderbytes)/meshes/v4_link_leg_4.STL" />
+          filename="file://$(find spiderbytes)/meshes/v4_link_leg_4.stl" />
       </geometry>
     </collision>
   </link>
@@ -736,7 +728,7 @@
     name="joint_leg_4"
     type="revolute">
     <origin
-      xyz="0.071 0 0"
+      xyz="0.04 -0.001 0.0"
       rpy="1.5708 0 2.4512" />
     <parent
       link="link_limb_4" />
